@@ -1,0 +1,97 @@
+Accélération graphique :
+	Installation du paquet nvidia-legacy-340xx-driver :
+		apt-get install nvidia-legacy-340xx-driver
+	Installation du paquet nvidia-detect :
+		apt-get install nvidia-detect
+	Installation du paquet nvidia-legacy-390xx-driver :
+		apt-get install nvidia-legacy-390xx-driver
+	Installation du paquet nvidia-driver :
+		apt-get install nvidia-driver
+
+Ajout buster-backports : ajouter les 2 lignes suivantes dans /etc/apt/sources.list
+	deb http://ftp.debian.org/debian buster-backports main contrib non-free
+	deb-src http://ftp.debian.org/debian buster-backports main contrib non-free
+
+Test de l'accélération graphique en installant blockout2 :
+	apt-get install blockout2
+
+apt-get install locate # Installation du paquet locate
+apt-get install vim # Install vim
+apt-get install vim # Install gpm, souris terminal
+apt-get install cmake cmake-extras extra-cmake-modules libsfcgal-dev # cmake, libsfcgal-dev
+apt-get install lxdm # lxdm
+	Dans /etc/lxdm/lxdm.conf, modifier pour numlock=1
+apt-get install intel-microcode # [Firmware bug]
+apt-get install firmware-misc-nonfree
+
+postgresql postgis
+	apt-get install postgresql postgis
+	passwd postgres
+	exit
+	su - postgres
+	createuser -dlrs jcc # nom de connexion à la place de jcc
+	exit
+	test avec la commande psql -l
+
+Référencement du dépôt qgis, sous root :
+	Dans le fichier /etc/apt/sources.list.d/qgis.list, ajout de la ligne :
+	deb https://qgis.org/debian buster main
+
+	puis commandes :
+	apt-get install wget
+	wget -O - https://qgis.org/downloads/qgis-2021.gpg.key | apt-key add -
+	apt-get update
+
+Référencement du dépôt lutris (jeux)
+	Dans le fichier /etc/apt/sources.list.d/lutris.list, ajout de la ligne :
+	deb http://download.opensuse.org/repositories/home:/strycore/Debian_10/ ./
+
+	puis commandes :
+	wget -O - https://download.opensuse.org/repositories/home:/strycore/Debian_10/Release.key | apt-key add -
+	apt-get update
+
+Référencement du dépôt wine (émulateur windows)
+	Dans le fichier /etc/apt/sources.list.d/wine.list, ajout de la ligne :
+	deb https://dl.winehq.org/wine-builds/debian buster main
+	deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/ buster main
+
+	puis commandes :
+	dpkg --add-architecture i386
+	wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
+	wget -qO - https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/Release.key | sudo apt-key add -
+	apt-get update
+	apt-get install --install-recommends winehq-stable
+
+nfs
+	apt-get install nfs-server nfs-common
+
+
+Jeux :
+	apt-get install lutris
+	apt-get install pysolfc pysolfc-cardsets
+	apt-get install kmines
+	apt-get install palapeli
+
+Outils :
+	apt-get install grpn
+	apt-get install kolourpaint
+	apt-get install vim-gtk
+	apt-get install ed
+	apt-get install dos2unix
+	apt-get install hexedit
+	apt-get install kchmviewer chm2pdf
+	apt-get install dia
+	apt-get install doxygen graphviz
+	apt-get install whois
+
+Net :
+	apt-get install lightning-l10n-fr enigmail # thundirbird
+	apt-get install filezilla
+
+Développement :
+	apt-get install qtcreator
+	apt-get install codeblocks codeblocks-contrib
+
+Cartographie :
+	apt-get install qgis
+
